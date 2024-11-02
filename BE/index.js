@@ -10,7 +10,7 @@ const books= [{
 const server = http.createServer((req,res)=>{
     if(req.method === 'GET' && req.url == '/login'){
     // console.log("login successfull");
-    res.end(JSON.stringify(books));
+    res.send(JSON.stringify(books));
 
     }
     else if(req.method === 'GET'&& req.url=='/register'){
