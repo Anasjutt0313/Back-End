@@ -21,22 +21,27 @@ const books= [{
 ]
 
     
-app.get('/login', (req, res) => {
-    res.status(200).send('Welcome to the Book API');
-});
+// app.get('/login', (req, res) => {
+//     res.status(200).send('Welcome to the Book API');
+// });
 
 app.get('/list', (req, res) => {
-    res.status(200).send(books);
+    res.status(200).json({books});
 });
 
 app.post('/add', (req, res) => {
+    const data = req.body;
+    books.push(data)
+    res.json({Array:books})
     
-    res.status(200).send('Book added successfully');
+    
 });
 
  
-app.put('/update', (req, res) => {
-    res.status(200).send('update the book');
+app.put('/put/:id', (req, res) => {
+    const v = req.params.id;
+    books[v].title="bakr"
+    res.status(200).json(books);
 });
 
 app.delete('/update', (req, res) => {
